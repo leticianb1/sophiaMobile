@@ -1,13 +1,13 @@
 package com.android.nunes.sophiamobile;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private Toolbar mToolbarButton;
@@ -17,7 +17,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = (Toolbar) findViewById(R.id.tb_main);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle("SophiaMobile");
       //  mToolbar.setLogo(R.id);
       setSupportActionBar(mToolbar);

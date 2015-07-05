@@ -5,23 +5,28 @@
     android:layout_height="wrap_content"
        tools:context=".MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tb_main"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        />
+    <!-- <android.support.v7.widget.Toolbar
+          android:id="@+id/tb_main"
+          android:layout_height="?attr/actionBarSize"
+          android:layout_width="match_parent"
+          android:minHeight="?attr/actionBarSize"
+          android:background="?attr/colorPrimary"
+          app:popupTheme="@style/AppTheme"
+          android:editTextColor="@color/branco"
+          />-->
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/fg_main"
-        android:name="com.android.nunes.sophiamobile.MainActivityFragment"
-        tools:layout="@layout/fragment_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tb_main"
-        />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
-</RelativeLayout>
+      <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:id="@+id/fg_main"
+          android:name="com.android.nunes.sophiamobile.MainActivityFragment"
+          tools:layout="@layout/fragment_main"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@id/toolbar"
+          />
+
+  </RelativeLayout>

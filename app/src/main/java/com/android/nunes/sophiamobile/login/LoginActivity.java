@@ -7,7 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,7 +17,7 @@ import com.android.nunes.sophiamobile.R;
 import com.android.nunes.sophiamobile.model.User;
 import com.android.nunes.sophiamobile.utils.WebInterface;
 
-public class LoginActivity extends ActionBarActivity implements WebInterface{
+public class LoginActivity extends AppCompatActivity implements WebInterface{
 
 
     private ProgressDialog ringProgressDialog;
