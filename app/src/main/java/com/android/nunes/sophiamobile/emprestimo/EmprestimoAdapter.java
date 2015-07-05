@@ -1,4 +1,4 @@
-package com.android.nunes.sophiamobile;
+package com.android.nunes.sophiamobile.emprestimo;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.nunes.sophiamobile.R;
 import com.android.nunes.sophiamobile.model.Emprestimo;
 
 import java.util.List;

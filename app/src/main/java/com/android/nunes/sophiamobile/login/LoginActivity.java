@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.nunes.sophiamobile.MainActivity;
+import com.android.nunes.sophiamobile.emprestimo.MainActivity;
 import com.android.nunes.sophiamobile.R;
 import com.android.nunes.sophiamobile.model.User;
 import com.android.nunes.sophiamobile.utils.WebInterface;
@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity implements WebInterface{
     private ProgressDialog ringProgressDialog;
     private AsyncTask webConnection;
     private User usuarioInformado;
+    public static String usuarioLogado = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,11 +93,14 @@ public class LoginActivity extends AppCompatActivity implements WebInterface{
         ringProgressDialog.dismiss();
 //        Log.d("RESPONSE", (String) object);
 
+        usuarioLogado = usuarioInformado.getName();
         Intent intent = new Intent(this, MainActivity.class);
 
-        intent.putExtra(Intent.EXTRA_TEXT, usuarioInformado.getName() );
+        intent.putExtra(Intent.EXTRA_TEXT, usuarioLogado );
         startActivity(intent);
     }
+
+
 
 
     @Override

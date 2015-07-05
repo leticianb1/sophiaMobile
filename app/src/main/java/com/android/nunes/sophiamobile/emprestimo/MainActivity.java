@@ -1,4 +1,4 @@
-package com.android.nunes.sophiamobile;
+package com.android.nunes.sophiamobile.emprestimo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,11 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.nunes.sophiamobile.R;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    private Toolbar mToolbarButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle("SophiaMobile");
       //  mToolbar.setLogo(R.id);
+
+
+
+
       setSupportActionBar(mToolbar);
 
 
@@ -45,4 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

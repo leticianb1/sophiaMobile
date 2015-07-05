@@ -1,4 +1,4 @@
-package com.android.nunes.sophiamobile;
+package com.android.nunes.sophiamobile.emprestimo;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,7 +13,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.nunes.sophiamobile.R;
+import com.android.nunes.sophiamobile.login.LoginActivity;
 import com.android.nunes.sophiamobile.model.Emprestimo;
 
 import org.json.JSONArray;
@@ -38,12 +41,16 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
     private RecyclerView mRecyclerView;
     private EmprestimoAdapter mAdapter;
 
+    public  final static String PAR_KEY = "com.android.nunes.objectpass.par";
+
     private String mUserStr;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -68,16 +75,15 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
     }
 
     private void updateList() {
-
-       Intent intent = getActivity().getIntent();
+        Intent intent = getActivity().getIntent();
         if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)) {
             mUserStr = intent.getStringExtra(Intent.EXTRA_TEXT);
-
+        }else{
+            mUserStr = LoginActivity.usuarioLogado;
+        }
             PegarEmprestimosTask pegarEmprestimosTask = new PegarEmprestimosTask();
             pegarEmprestimosTask.execute(mUserStr);
         }
-
-    }
 
 
     @Override
@@ -110,7 +116,17 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
     @Override
     public void itemClicked(View view, int position) {
        // String id =  mAdapter.getEmprestimos().get(position).get;
+        //   String forecast = String.valueOf(getActivity().find(R.id.serieId));
 
+        Emprestimo mEmprestimo =  mAdapter.getEmprestimos().get(position);
+        Toast.makeText(getActivity(), mEmprestimo.getLivro(), Toast.LENGTH_SHORT).show();
+        Intent detailIntent = new Intent(getActivity(), DetailActivity.class);
+
+        Bundle mBundle = new Bundle();
+        mBundle.putParcelable(PAR_KEY, mEmprestimo );
+        detailIntent.putExtras(mBundle);
+
+        startActivity(detailIntent);
     }
 
 

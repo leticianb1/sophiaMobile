@@ -19,4 +19,12 @@
     <string name="warning_fazendo_login">Fazendo login</string>
 
     <string name="title_activity_colors">ColorsActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+
+    <string name="data_emprestimo_label">Data do Empréstimo</string>
+    <string name="data_devolucao_label">Data de Devolução</string>
+    <string name="valor_multa_label">Valor da Multa</string>
+
+
 </resources>
