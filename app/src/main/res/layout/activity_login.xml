@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.android.nunes.sophiamobile.login.LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:id="@+id/banner_top"
+        />
+
+    <EditText
+        android:id="@+id/entrada_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_username"
+        android:layout_below="@id/banner_top"
+        android:layout_marginTop="8dp"
+        android:inputType="textEmailAddress"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <EditText
+        android:id="@+id/entrada_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_password"
+        android:layout_below="@id/entrada_nome"
+        android:focusable="true"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_login"
+        android:background="@color/azul"
+        android:textColor="@color/branco"
+        android:layout_below="@id/entrada_password"
+        android:layout_marginTop="8dp"
+        android:onClick="login"
+        android:id="@+id/button" />
+
+
+</RelativeLayout>
