@@ -93,21 +93,6 @@ public class RegistrationIntentService extends IntentService {
     private void sendRegistrationToServer(String token) {
       SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
-        /**  boolean ativar =  sp.getBoolean(QuickstartPreferences.LIGAR, Boolean.getBoolean(R.string.pref_on_default));
-
-        if(ativar){
-            int tempo = sp.getInt(QuickstartPreferences.TIME, Integer.valueOf(getString(R.string.pref_time_default)));
-
-            if(tempo == 5){
-
-            }else if (tempo == 10){
-
-            }else if (tempo == 15){
-
-            }else{
-
-            }
-*/
             GcmSender.enviar("oioi", token);
 
     }

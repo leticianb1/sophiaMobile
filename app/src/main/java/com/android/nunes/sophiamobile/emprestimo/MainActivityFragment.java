@@ -29,7 +29,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -220,12 +224,13 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
             final String JSON_DATA_EMPRESTIMO = "dataEmprestimo";
             final String JSON_DATA_DEVOLUCAO = "dataDevolucao";
             final String JSON_IMAGEM = "imagemLivro";
+            final String JSON_RENOVAVEL = "renovavel";
 
 
-            String multa;
+            double multa;
 
             JSONObject listaJsonObject = new JSONObject(usersJsonStr);
-            multa = listaJsonObject.getString(JSON_MULTA);
+            multa = listaJsonObject.getDouble(JSON_MULTA);
             JSONArray usuariosArray = listaJsonObject.getJSONArray(JSON_RESULT);
 
             List<Emprestimo> resultStrs = new ArrayList<Emprestimo>();
@@ -246,6 +251,7 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
                         String dataDevolucao;
                         String dataEmprestimo;
                         String imagemLivro;
+                        String renovavel;
 
                         Log.v(LOG_TAG, "Emprestimos JSON: " + emprestimoJson.toString());
 
@@ -253,8 +259,16 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
                         dataDevolucao = emprestimoJson.getString(JSON_DATA_DEVOLUCAO);
                         dataEmprestimo = emprestimoJson.getString(JSON_DATA_EMPRESTIMO);
                         imagemLivro = emprestimoJson.getString(JSON_IMAGEM);
+                        renovavel = emprestimoJson.getString(JSON_RENOVAVEL);
 
-                        Emprestimo emprestimo = new Emprestimo(livro, dataDevolucao, dataEmprestimo, imagemLivro);
+                        double valorMulta = 0;
+
+                        if(computarDias(dataDevolucao) >= 0){
+                            valorMulta = computarDias(dataDevolucao) * multa;
+                        }
+
+
+                       Emprestimo emprestimo = new Emprestimo(livro, dataDevolucao, dataEmprestimo, imagemLivro, String.valueOf(valorMulta), renovavel);
                         resultStrs.add(emprestimo);
                     }
 
@@ -283,6 +297,31 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
                 mAdapter.setClickListener(MainActivityFragment.this);
                 //  mAdapter.
             }
+        }
+
+        public int computarDias(String dataDevolucao){
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String dateInString = dataDevolucao;
+
+            try {
+
+                Date date = formatter.parse(dateInString);
+                 formatter.format(date);
+
+                Calendar a = Calendar.getInstance();
+                a.setTime(new Date());
+
+                Calendar b = Calendar.getInstance();
+                b.setTime(date);
+                a.add(Calendar.DATE, -b.get(Calendar.DAY_OF_MONTH));
+
+                return a.get(Calendar.DAY_OF_MONTH);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return -1;
+            }
+
         }
     }
 }

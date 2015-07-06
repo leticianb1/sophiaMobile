@@ -12,15 +12,27 @@ public class Emprestimo implements Parcelable {
     String livro;
     String valorMulta;
     String imagemLivro;
+    String renovavel;
 
-    public Emprestimo(String livro, String dataDevolucao, String dataEmprestimo, String imagemLivro) {
+    public Emprestimo(String livro, String dataDevolucao, String dataEmprestimo, String imagemLivro, String valorMulta, String renovavel) {
         this.dataDevolucao = dataDevolucao;
         this.dataEmprestimo = dataEmprestimo;
         this.livro = livro;
         this.imagemLivro = imagemLivro;
+        this.valorMulta = valorMulta;
+        this.renovavel = renovavel;
     }
 
     public Emprestimo() {
+    }
+
+
+    public String getRenovavel() {
+        return renovavel;
+    }
+
+    public void setRenovavel(String renovavel) {
+        this.renovavel = renovavel;
     }
 
     public String getDataDevolucao() {
@@ -76,6 +88,7 @@ public class Emprestimo implements Parcelable {
             emprestimo.dataEmprestimo = source.readString();
             emprestimo.valorMulta = source.readString();
             emprestimo.imagemLivro = source.readString();
+            emprestimo.renovavel = source.readString();
             return emprestimo;
         }
 
@@ -92,5 +105,6 @@ public class Emprestimo implements Parcelable {
         dest.writeString(dataEmprestimo);
         dest.writeString(valorMulta);
         dest.writeString(imagemLivro);
+        dest.writeString(renovavel);
     }
 }

@@ -1,6 +1,7 @@
 package com.android.nunes.sophiamobile.emprestimo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -37,11 +38,11 @@ public class DetailActivity extends AppCompatActivity {
             Intent intent = this.getIntent();
 
             if(intent != null && intent.hasExtra(MainActivityFragment.PAR_KEY)){
-                Emprestimo mEmprestimo = (Emprestimo)intent.getParcelableExtra(MainActivityFragment.PAR_KEY);
+                final Emprestimo mEmprestimo = (Emprestimo)intent.getParcelableExtra(MainActivityFragment.PAR_KEY);
 
                 TextView livro = (TextView)findViewById(R.id.livroNome);
                 TextView dataDevolucao = (TextView)findViewById(R.id.dataDevolucao);
-            //    TextView valorMulta = (TextView)findViewById(R.id.valorMulta);
+                TextView valorMulta = (TextView)findViewById(R.id.valorMulta);
                 ImageView imagemLivro = (ImageView)findViewById(R.id.imagemLivro);
                 TextView dataEmprestimo = (TextView)findViewById(R.id.dataEmprestimo);
 
@@ -50,7 +51,7 @@ public class DetailActivity extends AppCompatActivity {
                 livro.setText(mEmprestimo.getLivro());
                 dataDevolucao.setText(mEmprestimo.getDataDevolucao());
                 dataEmprestimo.setText(mEmprestimo.getDataEmprestimo());
-              //  valorMulta.setText(mEmprestimo.getValorMulta());
+               valorMulta.setText(mEmprestimo.getValorMulta());
 
 
                 mCollapsingToolbarLayout.setTitle(mEmprestimo.getLivro());
@@ -61,7 +62,14 @@ public class DetailActivity extends AppCompatActivity {
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(DetailActivity.this, "FAB clicked", Toast.LENGTH_SHORT).show();
+                        if(Boolean.valueOf(mEmprestimo.getRenovavel())){
+                            Toast.makeText(DetailActivity.this, R.string.renovavel_true , Toast.LENGTH_SHORT).show();
+                           // SharedPreferences
+                        }else{
+                            Toast.makeText(DetailActivity.this, R.string.renovavel_false, Toast.LENGTH_SHORT).show();
+                        }
+
+
                     }
                 });
 

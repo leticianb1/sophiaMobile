@@ -53,5 +53,8 @@
     <string name="pref_time_dez">10</string>
     <string name="pref_time_quinze">15</string>
 
+    <string name="renovavel_false">Não é possível renovar o livro pois ele já foi reservado</string>
+    <string name="renovavel_true">Empréstimo renovado. Nova data: </string>
+
 
 </resources>

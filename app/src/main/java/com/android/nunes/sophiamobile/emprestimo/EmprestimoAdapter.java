@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.nunes.sophiamobile.R;
 import com.android.nunes.sophiamobile.model.Emprestimo;
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.util.List;
 
@@ -44,8 +46,12 @@ public class EmprestimoAdapter  extends RecyclerView.Adapter<EmprestimoAdapter.E
     @Override
     public void onBindViewHolder(EmprestimosViewHolder emprestimosViewHolder, int position) {
         String livro = emprestimos.get(position).getLivro();
+        String dataDevolucao = emprestimos.get(position).getDataDevolucao();
+        String imagem = emprestimos.get(position).getImagemLivro();
 
         emprestimosViewHolder.livro.setText(livro);
+        emprestimosViewHolder.dataDevolucao.setText(dataDevolucao);
+        UrlImageViewHelper.setUrlDrawable(emprestimosViewHolder.imagem, emprestimos.get(position).getImagemLivro());
     }
 
     @Override
@@ -57,13 +63,16 @@ public class EmprestimoAdapter  extends RecyclerView.Adapter<EmprestimoAdapter.E
     public class EmprestimosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private Context context;
         CardView cv;
+        TextView dataDevolucao;
         TextView livro;
+        ImageView imagem;
 
         EmprestimosViewHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
             cv = (CardView)itemView.findViewById(R.id.card);
             livro = (TextView)itemView.findViewById(R.id.livro);
+            imagem = (ImageView)itemView.findViewById(R.id.imagemLivro);
 
         }
 
