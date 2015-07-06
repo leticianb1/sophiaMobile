@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_time_options">
+        <item>@string/pref_time_label_cinco</item>
+        <item>@string/pref_time_label_dez</item>
+        <item>@string/pref_time_label_quinze</item>
+    </string-array>
+
+    <string-array name="pref_time_values">
+        <item>@string/pref_time_cinco</item>
+        <item>@string/pref_time_dez</item>
+        <item>@string/pref_time_quinze</item>
+    </string-array>
+</resources>

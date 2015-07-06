@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">SophiaMobile</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configurar</string>
     <string name="action_refresh">Atualizar</string>
 
 
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
 
     <string name="hint_username">Username</string>
@@ -25,6 +26,32 @@
     <string name="data_emprestimo_label">Data do Empréstimo</string>
     <string name="data_devolucao_label">Data de Devolução</string>
     <string name="valor_multa_label">Valor da Multa</string>
+
+     <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+
+
+    <string name="pref_on_key">ligar</string>
+    <string name="pref_on_label">Ativar Notificação:</string>
+    <string name="pref_on_default">true</string>
+
+    <string name="pref_time_key">time</string>
+    <string name="pref_time_label">Tempo</string>
+    <string name="pref_time_default">5</string>
+
+
+
+    <string name="pref_time_label_cinco">5 minutos</string>
+    <string name="pref_time_label_dez">10 minutos</string>
+    <string name="pref_time_label_quinze">15 minutos</string>
+
+    <string name="pref_time_cinco">5</string>
+    <string name="pref_time_dez">10</string>
+    <string name="pref_time_quinze">15</string>
 
 
 </resources>
