@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.nunes.sophiamobile.emprestimo.MainActivity;
 import com.android.nunes.sophiamobile.R;
+import com.android.nunes.sophiamobile.emprestimo.CentralUfgActivity;
 import com.android.nunes.sophiamobile.model.User;
 import com.android.nunes.sophiamobile.utils.WebInterface;
 
@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements WebInterface{
 //        Log.d("RESPONSE", (String) object);
 
         usuarioLogado = usuarioInformado.getName();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, CentralUfgActivity.class);
 
         intent.putExtra(Intent.EXTRA_TEXT, usuarioLogado );
         startActivity(intent);

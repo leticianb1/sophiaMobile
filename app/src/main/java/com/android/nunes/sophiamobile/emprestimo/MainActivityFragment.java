@@ -313,9 +313,16 @@ public class MainActivityFragment extends Fragment implements EmprestimoAdapter.
 
                 Calendar b = Calendar.getInstance();
                 b.setTime(date);
-                a.add(Calendar.DATE, -b.get(Calendar.DAY_OF_MONTH));
 
-                return a.get(Calendar.DAY_OF_MONTH);
+                if(formatter.format(a.getTime()).equals(formatter.format(b.getTime()))){
+                    Log.i("Data", formatter.format(a.getTime()) +"||"+ formatter.format(a.getTime()));
+                   return -1;
+                }else{
+                    a.add(Calendar.DATE, -b.get(Calendar.DAY_OF_MONTH));
+                    return a.get(Calendar.DAY_OF_MONTH);
+                }
+
+
 
             } catch (ParseException e) {
                 e.printStackTrace();

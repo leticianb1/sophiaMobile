@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.android.nunes.sophiamobile.emprestimo.CentralUfgActivity">
+
+
+    <include
+        android:id="@+id/toolbarCentral"
+        layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/iconCentral"
+        android:src="@drawable/book_open"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="16dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/toolbarCentral"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textBiblio"
+        android:layout_below="@id/iconCentral"
+        android:text="@string/app_name"
+        />
+
+</RelativeLayout>

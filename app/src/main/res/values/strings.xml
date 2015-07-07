@@ -57,4 +57,10 @@
     <string name="renovavel_true">Empréstimo renovado. Nova data: </string>
 
 
+    <string name="meusEmprestimos">Meus Empréstimos </string>
+
+    <string name="sp_data_devolucao">dataDevolucao</string>
+    <string name="title_activity_central_ufg">CentralUfgActivity</string>
+
+
 </resources>

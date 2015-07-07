@@ -10,8 +10,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- [END gcm_permission] -->
 
-    <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
 
     <application
@@ -41,6 +43,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
                 <category android:name="gcm.play.android.samples.com.gcmquickstart" />
             </intent-filter>
         </receiver>
@@ -64,7 +67,7 @@
 
         <!-- [START gcm_listener] -->
         <service
-            android:name="com.android.nunes.sophiamobile.gsm.MyGcmListenerService"
+            android:name=".gsm.MyGcmListenerService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -73,18 +76,22 @@
         <!-- [END gcm_listener] -->
         <!-- [START instanceId_listener] -->
         <service
-            android:name="com.android.nunes.sophiamobile.gsm.MyInstanceIDListenerService"
-            android:exported="false">
+            android:name=".gsm.MyInstanceIDListenerService"
+            android:exported="false" >
             <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID"/>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <!-- [END instanceId_listener] -->
         <service
-            android:name="com.android.nunes.sophiamobile.gsm.RegistrationIntentService"
-            android:exported="false">
+            android:name=".gsm.RegistrationIntentService"
+            android:exported="false" >
         </service>
 
+        <activity
+            android:name=".emprestimo.CentralUfgActivity"
+            android:label="@string/title_activity_central_ufg" >
+        </activity>
     </application>
 
 </manifest>

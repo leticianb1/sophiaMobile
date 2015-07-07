@@ -7,7 +7,26 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivityFragment"
     android:orientation="vertical">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/abc_action_bar_default_height_material"
+        android:id="@+id/card"
+        android:padding="16dp"
 
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/meusEmprestimos"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textSize="25dp"
+            android:paddingLeft="20dp"
+
+            />
+
+    </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rview_emprestimos"

@@ -1,6 +1,8 @@
 package com.android.nunes.sophiamobile.emprestimo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +25,8 @@ public class EmprestimoAdapter  extends RecyclerView.Adapter<EmprestimoAdapter.E
     private List<Emprestimo> emprestimos;
     private  ClickListener clickListener;
 
+    private SharedPreferences prefs;
+
 
     public EmprestimoAdapter(List<Emprestimo> emprestimos) {
         this.emprestimos = emprestimos;
@@ -39,6 +43,7 @@ public class EmprestimoAdapter  extends RecyclerView.Adapter<EmprestimoAdapter.E
     @Override
     public EmprestimosViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_emprestimo, viewGroup, false);
+        prefs = PreferenceManager.getDefaultSharedPreferences(viewGroup.getContext());
         EmprestimosViewHolder evholder = new EmprestimosViewHolder(v);
         return evholder;
     }
@@ -50,8 +55,11 @@ public class EmprestimoAdapter  extends RecyclerView.Adapter<EmprestimoAdapter.E
         String imagem = emprestimos.get(position).getImagemLivro();
 
         emprestimosViewHolder.livro.setText(livro);
-        emprestimosViewHolder.dataDevolucao.setText(dataDevolucao);
-        UrlImageViewHelper.setUrlDrawable(emprestimosViewHolder.imagem, emprestimos.get(position).getImagemLivro());
+
+
+        emprestimosViewHolder.dataDevolucao.setText(prefs.getString("dv"+emprestimos.get(position).getLivro(), emprestimos.get(position).getDataDevolucao()));
+
+        UrlImageViewHelper.setUrlDrawable(emprestimosViewHolder.imagem, imagem);
     }
 
     @Override
@@ -72,7 +80,8 @@ public class EmprestimoAdapter  extends RecyclerView.Adapter<EmprestimoAdapter.E
             itemView.setOnClickListener(this);
             cv = (CardView)itemView.findViewById(R.id.card);
             livro = (TextView)itemView.findViewById(R.id.livro);
-            imagem = (ImageView)itemView.findViewById(R.id.imagemLivro);
+            dataDevolucao = (TextView)itemView.findViewById(R.id.devolucao);
+            imagem = (ImageView)itemView.findViewById(R.id.imagemLivroRow);
 
         }
 
